@@ -1,0 +1,188 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(ellipse at center, rgba(96, 165, 250, 0.3), rgba(0, 0, 0, 1)); 
+  background-color: black;
+  min-height: 100vh;
+  width: 100%;
+  color:white;  
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50%{
+
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.bounce {
+  display: inline-block;
+  animation: bounce 4s infinite alternate ease-in-out;
+}
+
+.homepage-main-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.homepage-heading{
+  font-size: 3rem;
+  
+}
+
+.button {
+  display: inline-block;
+  padding: 20px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+ transition:all  0.4s;
+  margin-top: 50px;
+ background-color: transparent;
+  color:white;
+  border: none;
+  border:1px solid #0066ff;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  background-color: #0066ff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+.homepage-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+/* FacebookLogin.css */
+.login-main-container {
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.login-container {
+  background: rgba(248, 231, 231, 0.904); /* Semi-transparent background */
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  color: white; /* Adjust text color */
+}
+
+.facebook-logo {
+  font-size: 36px;
+  font-weight: bold;
+  color: #157aff;
+  margin-bottom: 10px;
+}
+
+.login-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #1c1e21;
+}
+
+.input-box {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-box:focus {
+  border-color: #1877f2;
+  box-shadow: 0 0 5px rgba(24, 119, 242, 0.3);
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  accent-color: #1877f2;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background: #135cbc;
+}
+
+.login-footer {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.login-footer a {
+  color: #1877f2;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-p{
+  color:#0066ff;
+  border: 1px solid black;
+  background-color: transparent;
+  cursor: pointer;
+}
