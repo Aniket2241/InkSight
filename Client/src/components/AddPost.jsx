@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router";
 const AddPost = ({ userId }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -9,9 +9,9 @@ const AddPost = ({ userId }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const categories = ["General", "Technology", "Health", "Finance", "Lifestyle"];
-
+const navigate=useNavigate();
   const handleSubmit = async () => {
-  let username='Aditya'
+    const username = localStorage.getItem("username");
   let category="simple"
 
     setIsSubmitting(true);
@@ -43,8 +43,11 @@ const AddPost = ({ userId }) => {
         setCategory("General");
         setMetaTitle("");
         setMetaDescription("");
+        navigate('/LandingPage');
+
       } else {
         alert(`Error: ${result.message || "Failed to add post."}`);
+  
       }
     } catch (err) {
       console.error("Server error:", err);

@@ -3,11 +3,13 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router";
 import '../App.css'
+
 const Login = ({ setshowlogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-let navigate=useNavigate();
+  let navigate = useNavigate();
+
   const handleLogin = async () => {
     if (!username || !password) {
       toast.error("Both fields are required!", { position: "top-center" });
@@ -28,8 +30,11 @@ let navigate=useNavigate();
       if (!response.ok) {
         toast.error(data.error || "Invalid credentials!", { position: "top-center" });
       } else {
+        // ✅ Store token, role, and username in localStorage
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
+        localStorage.setItem("username", username); // Store username
+
         toast.success("Login successful!", { position: "top-center" });
 
         setTimeout(() => {
@@ -44,7 +49,7 @@ let navigate=useNavigate();
   };
 
   return (
-    <div className=" login-main-container">
+    <div className="login-main-container">
       <ToastContainer position="top-center" autoClose={3000} />
       
       <div className="login-container">
@@ -64,7 +69,7 @@ let navigate=useNavigate();
         <input
           type="password"
           placeholder="Password"
-          className="input-box "
+          className="input-box"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
