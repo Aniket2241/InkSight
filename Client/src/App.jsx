@@ -1,23 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import HomePage from './components/homepage'
-import Login from './components/Login'
-import Signup from './components/Signup'
-import { Router } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'; // Fixed import
+import HomePage from './components/homepage';
+import LandingPage from './components/LandingPage';
+import './App.css';
+import AddPost from './components/AddPost';
 
-
+// Moved router creation outside of component to prevent recreation on every render
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />, // Render HomePage directly at root
+  },
+  {
+    path: "/LandingPage",
+    element: <LandingPage />,
+  },
+  {
+    path:"/addpost",
+    element:<AddPost/>
+  }
+]);
 
 function App() {
-
   return (
-      <div className='app-main-container'>
-         <HomePage></HomePage>
-      
-      </div>
-
-  )
+    <>
+      <ToastContainer position="top-center" />
+      <RouterProvider router={router} /> {/* Fixed prop name */}
+    </>
+  );
 }
 
-export default App
+export default App;

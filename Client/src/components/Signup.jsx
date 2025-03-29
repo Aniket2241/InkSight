@@ -1,8 +1,46 @@
-// FacebookLogin.js
 import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Signup = ({showlogin,setshowlogin}) => {
+const Signup = ({ showlogin, setshowlogin }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("visitor");
+  const [loading, setLoading] = useState(false);
+
+  const handleSignup = async () => {
+    setLoading(true);
+
+    if (!username || !password) {
+      toast.error("All fields are required!",{position:"top-center"});
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/users/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, role: userType }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast.error(data.error || "Signup failed! Try again.",{position:"top-center"});
+      } else {
+        toast.success("Signup successful! Please log in.",{position:"top-center",autoClose:2000,});
+        setTimeout(() => {
+          
+          setshowlogin(true);
+        }, 2000);
+      }
+    } catch (err) {
+      toast.error("Server error! Please try again later.",{position:"top-center"});
+    }
+
+    setLoading(false);
+  };
 
   return (
     <div className="login-main-container">
@@ -12,44 +50,54 @@ const Signup = ({showlogin,setshowlogin}) => {
 
         <input
           type="text"
-          placeholder="UserName"
-          className="input-box" required
+          placeholder="Username"
+          className="input-box"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
         />
 
         <input
           type="password"
           placeholder="Password"
-          className="input-box" required
+          className="input-box"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
         />
 
         <div className="radio-group">
-          <label >Choose Your Role :</label>
+          <label>Choose Your Role:</label>
           <label>
             <input
               type="radio"
               name="userType"
-              value="author"
-              checked={userType === "author"}
-              onChange={() => setUserType("author")}
+              value="Author"
+              checked={userType === "Author"}
+              onChange={() => setUserType("Author")}
             />
-            Author 
+            Author
           </label>
           <label>
             <input
               type="radio"
               name="userType"
-              value="visitor"
-              checked={userType === "visitor"}
-              onChange={() => setUserType("visitor")}
+              value="Visitor"
+              checked={userType === "Visitor"}
+              onChange={() => setUserType("Visitor")}
             />
             Visitor
           </label>
         </div>
 
-        <button className="login-button">Sign Up</button>
+        <button className="login-button" onClick={handleSignup} disabled={loading}>
+          {loading ? "Signing up..." : "Sign Up"}
+        </button>
 
-        <div className="login-footer"> 
-          <button className="footer-p "onClick={()=>setshowlogin(true)}>Login To InkSight</button>
+        <div className="login-footer">
+          <button className="footer-p">
+            Login To InkSight
+          </button>
         </div>
       </div>
     </div>
