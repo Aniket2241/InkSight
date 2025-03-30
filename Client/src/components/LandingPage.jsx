@@ -4,7 +4,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
 import Navbar from './Navbar';
 import { motion } from "framer-motion";
-
+import Footer from './Footer';
 const Post = () => {
   const [posts, setPosts] = useState([]);
   const [blogs, setBlogs] = useState([]);
@@ -110,6 +110,7 @@ const Post = () => {
           ))
         )}
       </div>
+      <Footer/>
     </>
   );
 };

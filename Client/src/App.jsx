@@ -5,6 +5,8 @@ import LandingPage from './components/LandingPage';
 import './App.css';
 import AddPost from './components/AddPost';
 import Dashboard from './components/Dashboard';
+import Feedback from './components/Feedback'
+import Footer from './components/Feedback';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
   {
     path:"/dashboard",
     element:<Dashboard/>
+  },
+  {
+    path:"/feedback",
+    element:<Feedback/>
   }
 ]);
 
@@ -30,6 +36,7 @@ function App() {
     <>
       <ToastContainer position="top-center" />
       <RouterProvider router={router} />
+     
     </>
   );
 }

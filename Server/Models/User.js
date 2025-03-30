@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     role: { type: String, enum: ["Visitor", "Author"], required: true },
 });
 
-// Hash 
+
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();
     try {

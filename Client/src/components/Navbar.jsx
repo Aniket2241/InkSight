@@ -40,6 +40,13 @@ const Navbar = () => {
                 >
                     🚪 Logout
                 </motion.button>
+                <motion.button 
+                    onClick={() => navigate('/feedback')} 
+                    className="bg-green-400 hover:bg-blue-600 cursor-pointer text-white flex items-center gap-2 px-5 py-2 rounded-lg shadow-lg transition-all transform hover:scale-105"
+                    whileHover={{ y: -3 }}
+                >
+                    ➕ Feedback
+                </motion.button>
             </div>
         </nav>
     );
