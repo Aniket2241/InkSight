@@ -30,10 +30,9 @@ const Login = ({ setshowlogin }) => {
       if (!response.ok) {
         toast.error(data.error || "Invalid credentials!", { position: "top-center" });
       } else {
-        // ✅ Store token, role, and username in localStorage
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
-        localStorage.setItem("username", username); // Store username
+        localStorage.setItem("username", username); 
 
         toast.success("Login successful!", { position: "top-center" });
 
@@ -82,7 +81,7 @@ const Login = ({ setshowlogin }) => {
 
         <div className="login-footer">
           <button className="footer-p" onClick={() => setshowlogin(false)} disabled={loading}>
-            New User? Signup to InkSight
+            New User? SignUp here
           </button>
         </div>
       </div>

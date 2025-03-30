@@ -4,12 +4,12 @@ import HomePage from './components/homepage';
 import LandingPage from './components/LandingPage';
 import './App.css';
 import AddPost from './components/AddPost';
+import Dashboard from './components/Dashboard';
 
-// Moved router creation outside of component to prevent recreation on every render
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />, // Render HomePage directly at root
+    element: <HomePage />, 
   },
   {
     path: "/LandingPage",
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
   {
     path:"/addpost",
     element:<AddPost/>
+  },
+  {
+    path:"/dashboard",
+    element:<Dashboard/>
   }
 ]);
 
@@ -25,7 +29,7 @@ function App() {
   return (
     <>
       <ToastContainer position="top-center" />
-      <RouterProvider router={router} /> {/* Fixed prop name */}
+      <RouterProvider router={router} />
     </>
   );
 }

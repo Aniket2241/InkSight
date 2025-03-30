@@ -10,9 +10,15 @@ const AddPost = ({ userId }) => {
 
   const categories = ["General", "Technology", "Health", "Finance", "Lifestyle"];
 const navigate=useNavigate();
+function back(){
+    navigate('/LandingPage');
+}
   const handleSubmit = async () => {
     const username = localStorage.getItem("username");
   let category="simple"
+
+  
+
 
     setIsSubmitting(true);
 
@@ -58,29 +64,31 @@ const navigate=useNavigate();
   };
 
   return (
+    <>
+    <button onClick={back} className="text-white border-2 bg-blue-400 p-2 rounded-lg cursor-pointer">Back</button>
     <div className="flex justify-center items-center w-full px-4 py-8">
       <div className="w-[80%] p-4 rounded-xl bg-gray-900 text-white shadow-lg border border-white">
         <h2 className="text-3xl font-bold text-center mb-6">✍ Create a New Post</h2>
         <div className="space-y-6">
           <div>
             <label className="block text-gray-300 mb-2">Post Title *</label>
-            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full p-3 rounded-lg bg-gray-800 text-white border" placeholder="Enter post title" />
+            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full p-3 rounded-lg bg-gray-800 text-white " placeholder="Enter post title" />
           </div>
           <div>
             <label className="block text-gray-300 mb-2">Post Content *</label>
-            <textarea value={content} onChange={(e) => setContent(e.target.value)} className="w-full p-3 rounded-lg bg-gray-800 text-white border min-h-[200px]" placeholder="Write your post content here..." />
+            <textarea value={content} onChange={(e) => setContent(e.target.value)} className="w-full p-3 rounded-lg bg-gray-800 text-white min-h-[200px]" placeholder="Write your post content here..." />
           </div>
           <div>
             <label className="block text-gray-300 mb-2">Meta Title *</label>
-            <input type="text" value={metaTitle} onChange={(e) => setMetaTitle(e.target.value)} className="w-full p-3 rounded-lg bg-gray-800 text-white border" placeholder="Enter meta title" />
+            <input type="text" value={metaTitle} onChange={(e) => setMetaTitle(e.target.value)} className="w-full p-3 rounded-lg bg-gray-800 text-white " placeholder="Enter meta title" />
           </div>
           <div>
             <label className="block text-gray-300 mb-2">Meta Description *</label>
-            <textarea value={metaDescription} onChange={(e) => setMetaDescription(e.target.value)} className="w-full p-3 rounded-lg bg-gray-800 text-white border min-h-[100px]" placeholder="Enter meta description" />
+            <textarea value={metaDescription} onChange={(e) => setMetaDescription(e.target.value)} className="w-full p-3 rounded-lg bg-gray-800 text-white  min-h-[100px]" placeholder="Enter meta description" />
           </div>
           <div>
             <label className="block text-gray-300 mb-2">Category</label>
-            <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full p-3 rounded-lg bg-gray-800 text-white border">
+            <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full p-3 rounded-lg bg-gray-800 text-white ">
               {categories.map((cat) => (
                 <option key={cat} value={cat} className="bg-gray-900">{cat}</option>
               ))}
@@ -94,6 +102,7 @@ const navigate=useNavigate();
         </div>
       </div>
     </div>
+    </>
   );
 };
 

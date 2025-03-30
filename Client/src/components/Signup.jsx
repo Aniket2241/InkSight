@@ -46,7 +46,7 @@ const Signup = ({ showlogin, setshowlogin }) => {
     <div className="login-main-container">
       <div className="login-container">
         <h1 className="facebook-logo">InkSight</h1>
-        <h2 className="login-title">Sign Up to InkSight</h2>
+        <h2 className="login-title text-bold">Sign Up</h2>
 
         <input
           type="text"
@@ -96,7 +96,7 @@ const Signup = ({ showlogin, setshowlogin }) => {
 
         <div className="login-footer">
           <button className="footer-p">
-            Login To InkSight
+            Already registered ? Login here
           </button>
         </div>
       </div>
