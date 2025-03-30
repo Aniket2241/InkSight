@@ -1,5 +1,5 @@
 import { ToastContainer } from 'react-toastify';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'; // Fixed import
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'; 
 import HomePage from './components/homepage';
 import LandingPage from './components/LandingPage';
 import './App.css';
